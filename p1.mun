@@ -1,0 +1,16 @@
+extern fn random_move() -> u64;
+extern fn rock() -> u64;
+extern fn paper() -> u64;
+extern fn scissors() -> u64;
+
+pub fn next_move(last_opponent_move: u64) -> u64 {
+    let rng = random_move();
+
+    if rng == rock() {
+        last_opponent_move
+    } else if rng == paper() {
+        scissors()
+    } else {
+        rng
+    }
+}
